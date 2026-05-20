@@ -1,0 +1,15 @@
+<article class="release-card">
+  {% if item.data.coverImage %}
+    <img src="{{ item.data.coverImage | url }}" alt="{{ item.data.title }} cover art" width="200" height="200">
+  {% endif %}
+  <div class="release-card-meta">
+    {% if item.data.featured %}
+      <p class="label-new-release">New release</p>
+    {% endif %}
+    <h2>{{ item.data.title }}</h2>
+    <p class="release-type">{{ item.data.releaseType }} • {{ item.data.year }}</p>
+    {% if item.data.listenUrl %}
+      <p><a href="{{ item.data.listenUrl }}">Listen →</a></p>
+    {% endif %}
+  </div>
+</article>

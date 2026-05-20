@@ -1,0 +1,17 @@
+{% if release %}
+<section class="hero hero-release">
+  <p class="label-new-release">New release</p>
+  <div class="hero-release-inner">
+    {% if release.data.coverImage %}
+      <img class="hero-release-cover" src="{{ release.data.coverImage | url }}" alt="{{ release.data.title }} cover art" width="280" height="280">
+    {% endif %}
+    <div class="hero-release-meta">
+      <h2>{{ release.data.title }}</h2>
+      <p class="release-type">{{ release.data.releaseType }} • {{ release.data.year }}</p>
+      {% if release.data.listenUrl %}
+        <p><a class="listen-link" href="{{ release.data.listenUrl }}">Listen →</a></p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}

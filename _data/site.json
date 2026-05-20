@@ -1,0 +1,20 @@
+{
+  "choirName": "Spirit Machine",
+  "tagline": "A community choir dedicated to working hard, making great music, and having a great time",
+  "contactEmail": "hello@spiritmachine.example",
+  "donateUrl": "https://example.com/donate",
+  "social": [
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/"
+    },
+    {
+      "label": "Spotify",
+      "url": "https://open.spotify.com/"
+    }
+  ]
+}

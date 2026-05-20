@@ -1,46 +1,89 @@
 # Decap CMS Configuration File
 
-# The backend option specifies how to access the content for your site
 backend:
   name: git-gateway
-  branch: main # The branch to update (optional; defaults to main)
+  branch: master
 
-# Uncomment below to enable drafts https://www.decapcms.org/docs/add-to-your-site/#editorial-workflow
-# publish_mode: editorial_workflow
+# site_url: https://spiritmachine.example
 
-# Uncomment below to enable a link to your published site in the header bar of Decap CMS
-# site_url: https://eleventy-netlify-boilerplate.netlify.app/
-
-media_folder: "static/img" # Media files will be stored in the repo under images/uploads
+media_folder: "static/img"
 
 collections:
-  # Our blog posts
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Post" # Used in the UI
-    folder: "posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "Anonymous" }
-      - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-      - { label: "Body", name: "body", widget: "markdown" }
-  # Our pages e.g. About
-  - name: "pages"
-    label: "Page"
-    folder: "pages"
-    create: false # Change to true to allow editors to create new pages
+  - name: "settings"
+    label: "Site settings"
+    files:
+      - name: "site"
+        label: "Site settings"
+        file: "_data/site.json"
+        fields:
+          - { label: "Choir name", name: "choirName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
+          - { label: "Contact email", name: "contactEmail", widget: "string" }
+          - { label: "Donate URL", name: "donateUrl", widget: "string" }
+          - label: "Social links"
+            name: "social"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+  - name: "events"
+    label: "Event"
+    folder: "events"
+    create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Permalink", name: "permalink", widget: "string" }
-      - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
+      - { label: "Start date", name: "startDate", widget: "datetime" }
+      - { label: "End date", name: "endDate", widget: "datetime", required: false }
+      - { label: "Venue", name: "venue", widget: "string" }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Ticket URL", name: "ticketUrl", widget: "string", required: false }
+      - { label: "Featured on home", name: "featured", widget: "boolean", default: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "music"
+    label: "Release"
+    folder: "music"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Release type", name: "releaseType", widget: "string", hint: "e.g. Single, Album, Live" }
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Cover image", name: "coverImage", widget: "image", required: false }
+      - { label: "Listen URL", name: "listenUrl", widget: "string", required: false }
+      - { label: "Featured on home", name: "featured", widget: "boolean", default: false }
+      - { label: "Sort order", name: "order", widget: "number", default: 0, value_type: "int" }
+
+  - name: "news"
+    label: "News"
+    folder: "posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish date", name: "date", widget: "datetime" }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Page"
+    folder: "pages"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish date", name: "date", widget: "datetime", required: false }
+      - { label: "Permalink", name: "permalink", widget: "string", required: false }
+      - { label: "Meta description", name: "metaDescription", widget: "text", required: false }
+      - label: "Navigation"
         name: "eleventyNavigation"
         widget: "object"
+        required: false
         fields:
           - { label: "Key", name: "key", widget: "string" }
-          - { label: "Order", name: "order", widget: "number", default: 0 }
+          - { label: "Order", name: "order", widget: "number", default: 0, value_type: "int" }
       - { label: "Body", name: "body", widget: "markdown" }

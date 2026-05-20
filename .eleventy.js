@@ -19,22 +19,47 @@ module.exports = function(eleventyConfig) {
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
 
-  // Add support for maintenance-free post authors
-  // Adds an authors collection using the author key in our post frontmatter
-  // Thanks to @pdehaan: https://github.com/pdehaan
-  eleventyConfig.addCollection("authors", collection => {
-    const blogs = collection.getFilteredByGlob("posts/*.md");
-    return blogs.reduce((coll, post) => {
-      const author = post.data.author;
-      if (!author) {
-        return coll;
-      }
-      if (!coll.hasOwnProperty(author)) {
-        coll[author] = [];
-      }
-      coll[author].push(post.data);
-      return coll;
-    }, {});
+  eleventyConfig.addCollection("event", collection => {
+    return collection
+      .getFilteredByGlob("events/*.md")
+      .sort((a, b) => a.data.startDate - b.data.startDate);
+  });
+
+  eleventyConfig.addCollection("music", collection => {
+    return collection.getFilteredByGlob("music/*.md").sort((a, b) => {
+      const orderA = a.data.order ?? 0;
+      const orderB = b.data.order ?? 0;
+      if (orderA !== orderB) return orderA - orderB;
+      return (b.data.year ?? 0) - (a.data.year ?? 0);
+    });
+  });
+
+  eleventyConfig.addCollection("featuredEvent", collection => {
+    return collection
+      .getFilteredByGlob("events/*.md")
+      .filter(item => item.data.featured);
+  });
+
+  eleventyConfig.addCollection("featuredRelease", collection => {
+    return collection
+      .getFilteredByGlob("music/*.md")
+      .filter(item => item.data.featured);
+  });
+
+  eleventyConfig.addCollection("upcomingEvents", collection => {
+    const now = DateTime.now();
+    return collection
+      .getFilteredByGlob("events/*.md")
+      .filter(item => DateTime.fromJSDate(item.data.startDate) > now)
+      .sort((a, b) => a.data.startDate - b.data.startDate);
+  });
+
+  eleventyConfig.addCollection("pastEvents", collection => {
+    const now = DateTime.now();
+    return collection
+      .getFilteredByGlob("events/*.md")
+      .filter(item => DateTime.fromJSDate(item.data.startDate) <= now)
+      .sort((a, b) => b.data.startDate - a.data.startDate);
   });
 
   // Date formatting (human readable)
@@ -45,6 +70,33 @@ module.exports = function(eleventyConfig) {
   // Date formatting (machine readable)
   eleventyConfig.addFilter("machineDate", dateObj => {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-MM-dd");
+  });
+
+  eleventyConfig.addFilter("eventDateRange", (startDate, endDate) => {
+    if (!startDate) return "";
+    const start = DateTime.fromJSDate(startDate);
+    if (!endDate) return start.toFormat("MMMM d, yyyy");
+    const end = DateTime.fromJSDate(endDate);
+    if (start.hasSame(end, "day")) return start.toFormat("MMMM d, yyyy");
+    if (start.hasSame(end, "month") && start.hasSame(end, "year")) {
+      const days = [];
+      let cur = start;
+      while (cur <= end) {
+        days.push(cur.day);
+        cur = cur.plus({ days: 1 });
+      }
+      const dayStr =
+        days.length > 2
+          ? `${days.slice(0, -1).join(", ")}, ${days[days.length - 1]}`
+          : days.join(", ");
+      return `${start.toFormat("MMMM")} ${dayStr}, ${start.year}`;
+    }
+    return `${start.toFormat("MMMM d")} – ${end.toFormat("MMMM d, yyyy")}`;
+  });
+
+  eleventyConfig.addFilter("isFuture", dateObj => {
+    if (!dateObj) return false;
+    return DateTime.fromJSDate(dateObj) > DateTime.now();
   });
 
   // Minify CSS
@@ -65,7 +117,7 @@ module.exports = function(eleventyConfig) {
 
   // Minify HTML output
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    if (outputPath.indexOf(".html") > -1) {
+    if (typeof outputPath === "string" && outputPath.indexOf(".html") > -1) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,

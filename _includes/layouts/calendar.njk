@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+section: calendar
+---
+
+<h1>{{ title }}</h1>
+
+{{ content | safe }}
+
+<section class="events-upcoming">
+  <h2>Upcoming</h2>
+  {% if collections.upcomingEvents | length %}
+    {% for item in collections.upcomingEvents %}
+      {% include "components/event-card.njk" %}
+    {% endfor %}
+  {% else %}
+    <p>No upcoming events scheduled. Check back soon.</p>
+  {% endif %}
+</section>
+
+<section class="events-past">
+  <h2>Past</h2>
+  {% if collections.pastEvents | length %}
+    {% for item in collections.pastEvents %}
+      {% include "components/event-card.njk" %}
+    {% endfor %}
+  {% else %}
+    <p>No past events listed yet.</p>
+  {% endif %}
+</section>

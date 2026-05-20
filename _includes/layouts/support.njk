@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+section: support
+---
+<h1>{{ title }}</h1>
+
+{{ content | safe }}
+
+<p><a class="button" href="{{ '/contact/' | url }}">Join or ask about scholarships</a></p>
+{% if site.donateUrl %}
+<p><a href="{{ site.donateUrl }}">Additional financial support</a></p>
+{% endif %}

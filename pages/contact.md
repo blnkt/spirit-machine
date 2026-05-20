@@ -1,15 +1,10 @@
 ---
 layout: layouts/contact.njk
-title: Get in touch
-metaDescription: This is a sample meta description. If one is not present in your page/post's front matter, the default metadata.description will be used instead.
+title: Contact
+metaDescription: Contact Spirit Machine about joining the choir, scholarships, bookings, or media inquiries.
 section: contact
-date: 2018-01-01
+date: 2026-01-01T00:00:00.000Z
 permalink: /contact/index.html
-eleventyNavigation:
-  key: Contact
-  order: 3
 ---
-The contact form on this page uses [Netlify Forms](https://www.netlify.com/docs/form-handling/) to process submissions,
-and saves them in the connected Netlify account where notifications can
-optionally be configured. Each submission is passed through a spam filter and
-if flagged, will display a CAPTCHA challenge to the user.
+
+Questions about **joining Spirit Machine** (Spring 2026 sign-up, scholarships, or matching pitch), **booking the choir**, or **media inquiries**? Send a message below or email [{{ site.contactEmail }}](mailto:{{ site.contactEmail }}).

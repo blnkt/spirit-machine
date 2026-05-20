@@ -1,0 +1,12 @@
+{% if event %}
+<section class="hero hero-event">
+  <h1 class="hero-title">{{ event.data.title }}</h1>
+  <p class="hero-dates">{{ event.data.startDate | eventDateRange(event.data.endDate) }}</p>
+  {% if event.data.venue %}
+    <p class="hero-venue">{{ event.data.venue }}{% if event.data.location %}, {{ event.data.location }}{% endif %}</p>
+  {% endif %}
+  {% if event.data.ticketUrl %}
+    <p class="hero-cta"><a class="button" href="{{ event.data.ticketUrl }}">Tickets</a></p>
+  {% endif %}
+</section>
+{% endif %}

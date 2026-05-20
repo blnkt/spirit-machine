@@ -1,33 +1,25 @@
 ---
-title: About us
-metaDescription: This is a sample meta description. If one is not present in your page/post's front matter, the default metadata.description will be used instead.
-date: 2017-01-01T00:00:00.000Z
+title: About
+metaDescription: Spirit Machine is a Portland community choir with eclectic repertoire, Thursday rehearsals at Taborspace, and no audition required.
+date: 2026-01-01T00:00:00.000Z
 permalink: /about/index.html
 eleventyNavigation:
   key: About
-  order: 1
+  order: 3
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
-Add a few line breaks in here to test:-
-Capitalize  
-on  
-low  
-hanging  
-fruit  
+Spirit Machine is a community choir dedicated to having a great time by working hard and making great music. We sing an eclectic repertoire of supremely good tunes. Our last concert featured music from the Spanish renaissance, local indie songwriters, contemporary pop-gospel, and a South African folk-hymn. We are especially excited to continue and expand our arrangements of original music by Portland-area artists and bands.
 
-## Our services
+## Joining
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+We welcome singers of all experience levels. The only requirements are your presence and commitment—and being ready to party (just saying). There is no audition. Being able to match pitch reasonably well is important; if that is a challenge for you, [get in touch](/contact/) so we can make a plan to support your growth. You have a beautiful voice.
 
-### Blue-sky thinking
+We expect members to attend all rehearsals and the performance, with a maximum of three absences allowed per season. If you are considering joining, you are welcome to come to the first rehearsal and see how it feels before committing.
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+## Rehearsals
 
-#### Management frameworks
+Spring 2026 rehearsals are **Thursday evenings, 6:30–8:15 pm**, in the Annex Room (bottom floor) at **Taborspace** in SE Portland. See [News](/news/) for the full schedule and [Calendar](/calendar/) for performances and gatherings.
 
-Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+## Membership
 
-##### Regulatory convergence
-
-Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+Tuition is offered on a tiered sliding scale ($180–$330), due by February 1st (installments available on request). Everyone is welcome regardless of ability to pay—see our [Donate](/support/) page for details and scholarship information.

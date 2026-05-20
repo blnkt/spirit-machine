@@ -1,7 +1,8 @@
 :root {
-	--primary: blue;
-	--secondary: white;
-	--background: #FFF0EB;
+	--primary: #2d1b4e;
+	--secondary: #f5f0fa;
+	--background: #f8f4fc;
+	--accent: #c45c26;
 }
 
 *, *:before, *:after {
@@ -23,7 +24,11 @@ body {
 }
 
 main {
-	max-width: 37.5em;
+	max-width: 42rem;
+}
+
+html[data-current="home"] main {
+	max-width: 52rem;
 }
 
 p,
@@ -189,8 +194,143 @@ button {
 	cursor: pointer;
 }
 
+/* Home hero */
+.hero {
+	margin-bottom: 2.5em;
+	padding-bottom: 2em;
+	border-bottom: 1px solid var(--secondary);
+}
+
+.hero-title {
+	font-size: 2.5rem;
+	line-height: 1.1;
+	margin: 0 0 .25em;
+}
+
+.hero-dates {
+	font-size: 1.35rem;
+	font-weight: 600;
+	margin: 0 0 .5em;
+}
+
+.hero-venue {
+	margin: 0 0 1em;
+	opacity: 0.85;
+}
+
+.label-new-release {
+	text-transform: uppercase;
+	letter-spacing: .12em;
+	font-size: .7rem;
+	font-weight: 700;
+	margin: 0 0 .75em;
+	color: var(--accent);
+}
+
+.hero-release-inner {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5em;
+	align-items: flex-start;
+}
+
+.hero-release-cover {
+	border-radius: .25em;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
+}
+
+.hero-release-meta h2 {
+	margin-top: 0;
+}
+
+.release-type {
+	opacity: 0.8;
+	font-style: italic;
+}
+
+.listen-link {
+	font-weight: 600;
+}
+
+a.button,
+.button {
+	display: inline-block;
+	padding: .6em 1.25em;
+	background-color: var(--primary);
+	color: var(--secondary) !important;
+	border-radius: .25em;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+a.button:hover {
+	opacity: 0.9;
+}
+
+.home-intro {
+	margin-top: 2em;
+}
+
+/* Music grid */
+.release-grid {
+	display: grid;
+	gap: 2em;
+}
+
+.release-card {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.25em;
+	padding-bottom: 2em;
+	border-bottom: 1px solid var(--secondary);
+}
+
+.release-card img {
+	border-radius: .25em;
+	max-width: 200px;
+}
+
+/* Calendar */
+.event-card {
+	margin-bottom: 1.5em;
+	padding-bottom: 1.5em;
+	border-bottom: 1px solid var(--secondary);
+}
+
+.event-card h2 {
+	margin-top: 0;
+}
+
+.event-dates {
+	font-weight: 600;
+}
+
+.events-upcoming,
+.events-past {
+	margin-top: 2em;
+}
+
+/* Footer */
+footer .social-links ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .75em;
+}
+
+.footer-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
 @media screen and (min-width:768px) {
 	:root {
 		font-size: 1.1rem;
+	}
+
+	.release-grid {
+		grid-template-columns: 1fr;
 	}
 }

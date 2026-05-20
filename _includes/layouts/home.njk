@@ -3,4 +3,16 @@ layout: layouts/base.njk
 section: home
 ---
 
-{{ content | safe }}
+{% set featuredEvent = collections.featuredEvent[0] %}
+{% set featuredRelease = collections.featuredRelease[0] %}
+
+{% set event = featuredEvent %}
+{% include "components/hero-event.njk" %}
+{% set release = featuredRelease %}
+{% include "components/hero-release.njk" %}
+
+{% if content %}
+<div class="home-intro">
+  {{ content | safe }}
+</div>
+{% endif %}

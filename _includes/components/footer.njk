@@ -1,6 +1,11 @@
 <footer>
-  <small>
-    Created by <a href="https://danurbanowicz.com">Dan Urbanowicz</a>.
-    Check out the <a href="{{ pkg.repository.url }}">GitHub project</a>. Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a>
-  </small>
+  {% include "components/social-links.njk" %}
+  <p class="footer-links">
+    <a href="{{ site.donateUrl }}">Donate</a>
+    <a href="{{ '/contact/' | url }}">Contact</a>
+    {% if site.contactEmail %}
+      <a href="mailto:{{ site.contactEmail }}">Email</a>
+    {% endif %}
+  </p>
+  <small>© {{ metadata.title }}</small>
 </footer>

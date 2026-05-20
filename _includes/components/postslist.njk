@@ -1,4 +1,5 @@
-<section class="posts-list">
+<section class="posts-list" aria-labelledby="posts-list-heading">
+  <h2 id="posts-list-heading" class="visually-hidden">Recent posts</h2>
 	{% for post in postslist | reverse %}
 		<article{% if post.url == url %} data-current="current item"{% endif %}>
 			<h3>

@@ -1,18 +1,21 @@
 <header class="site-header">
-  <a class="site-logo" href="{{ '/' | url }}">
+  <a class="site-logo" href="{{ '/' | url }}" aria-label="{{ site.choirName or metadata.title }}, home">
     <img
       class="site-logo-image"
       src="{{ '/static/img/sp-logo-sm.png' | url }}"
-      alt="{{ site.choirName or metadata.title }}"
+      alt=""
+      role="presentation"
       width="180"
       height="48"
     >
   </a>
-  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
-    <span class="nav-toggle-label">Menu</span>
-    <span class="nav-toggle-icon" aria-hidden="true"></span>
-  </button>
-  <div id="site-nav" class="site-nav">
-    {% include "components/nav.njk" %}
-  </div>
+  <details class="nav-disclosure">
+    <summary class="nav-disclosure-summary">
+      <span class="nav-disclosure-label">Menu</span>
+      <span class="nav-disclosure-icon" aria-hidden="true"></span>
+    </summary>
+    <div id="site-nav" class="site-nav">
+      {% include "components/nav.njk" %}
+    </div>
+  </details>
 </header>

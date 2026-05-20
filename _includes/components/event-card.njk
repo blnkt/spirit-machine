@@ -1,4 +1,4 @@
-<article class="event-card">
+<article class="event-card{% if past %} event-card-past{% endif %}">
   <div class="event-card-date">
     <time datetime="{{ item.data.startDate | machineDate }}">{{ item.data.startDate | eventDateRange(item.data.endDate) }}</time>
   </div>
@@ -11,7 +11,11 @@
       <p>{{ item.data.summary }}</p>
     {% endif %}
     {% if item.data.ticketUrl %}
-      <p><a class="button button-accent" href="{{ item.data.ticketUrl }}">Tickets</a></p>
+      <p>
+        <a class="button button-accent" href="{{ item.data.ticketUrl }}" rel="noopener noreferrer" target="_blank">
+          Tickets<span class="visually-hidden"> (opens in new tab)</span>
+        </a>
+      </p>
     {% endif %}
   </div>
 </article>

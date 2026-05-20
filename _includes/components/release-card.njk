@@ -9,7 +9,11 @@
     <h2>{{ item.data.title }}</h2>
     <p class="release-type">{{ item.data.releaseType }} • {{ item.data.year }}</p>
     {% if item.data.listenUrl %}
-      <p><a href="{{ item.data.listenUrl }}">Listen →</a></p>
+      <p>
+        <a href="{{ item.data.listenUrl }}" rel="noopener noreferrer">
+          Listen<span class="visually-hidden"> to {{ item.data.title }} (opens in new tab)</span>
+        </a>
+      </p>
     {% endif %}
   </div>
 </article>

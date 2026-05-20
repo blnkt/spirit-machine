@@ -3,9 +3,9 @@
   <ul>
     {% for link in site.social %}
       <li>
-        <a href="{{ link.url }}" rel="noopener noreferrer">
+        <a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">
           <span class="social-icon social-icon-{{ link.label | lower }}" aria-hidden="true"></span>
-          <span class="social-label">{{ link.label }}</span>
+          <span class="social-label">{{ link.label }}<span class="visually-hidden"> (opens in new tab)</span></span>
         </a>
       </li>
     {% endfor %}

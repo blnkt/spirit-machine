@@ -7,16 +7,20 @@ section: home
 {% set featuredRelease = collections.featuredRelease[0] %}
 
 <div class="home-page">
+  <h1 class="visually-hidden">{{ site.choirName or metadata.title }}</h1>
+
   {% if featuredEvent %}
     <div class="hero-bleed">
       {% set event = featuredEvent %}
+      {% set headingLevel = 2 %}
       {% include "components/hero-event.njk" %}
     </div>
   {% endif %}
 
   <div class="content-wrap">
     {% if featuredRelease %}
-      <section class="home-release">
+      <section class="home-release" aria-labelledby="home-release-heading">
+        <h2 id="home-release-heading" class="visually-hidden">Featured release</h2>
         {% set release = featuredRelease %}
         {% include "components/hero-release.njk" %}
       </section>

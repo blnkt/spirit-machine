@@ -9,7 +9,8 @@
     "build": "npx @11ty/eleventy",
     "watch": "npx @11ty/eleventy --watch",
     "serve": "npx @11ty/eleventy --serve",
-    "debug": "DEBUG=* npx @11ty/eleventy"
+    "debug": "DEBUG=* npx @11ty/eleventy",
+    "a11y": "npm run build && npx pa11y-ci --config .pa11yci"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "luxon": "^3.7.1",
     "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
-    "terser": "^5.47.1"
+    "terser": "^5.47.1",
+    "pa11y-ci": "^4.0.0"
   }
 }

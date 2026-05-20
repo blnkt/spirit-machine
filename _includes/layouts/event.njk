@@ -10,11 +10,15 @@ section: event
       <p class="event-venue">{{ venue }}{% if location %}, {{ location }}{% endif %}</p>
     {% endif %}
     {% if ticketUrl %}
-      <p><a class="button button-accent" href="{{ ticketUrl }}">Tickets</a></p>
+      <p>
+        <a class="button button-accent" href="{{ ticketUrl }}" rel="noopener noreferrer" target="_blank">
+          Tickets<span class="visually-hidden"> (opens in new tab)</span>
+        </a>
+      </p>
     {% endif %}
     {{ content | safe }}
   </article>
-  <nav class="page-nav">
+  <nav class="page-nav" aria-label="Event">
     <a href="{{ '/calendar/' | url }}">← Calendar</a>
   </nav>
 </div>

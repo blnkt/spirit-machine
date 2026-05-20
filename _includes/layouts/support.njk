@@ -16,6 +16,10 @@ section: support
     <a class="button" href="{{ '/contact/' | url }}">Join or ask about scholarships</a>
   </p>
   {% if site.donateUrl %}
-    <p class="support-secondary"><a href="{{ site.donateUrl }}">Additional financial support</a></p>
+    <p class="support-secondary">
+      <a href="{{ site.donateUrl }}" rel="noopener noreferrer" target="_blank">
+        Additional financial support<span class="visually-hidden"> (opens in new tab)</span>
+      </a>
+    </p>
   {% endif %}
 </div>

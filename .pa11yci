@@ -1,0 +1,16 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe", "htmlcs"]
+  },
+  "urls": [
+    "http://localhost:8080/",
+    "http://localhost:8080/about/",
+    "http://localhost:8080/calendar/",
+    "http://localhost:8080/music/",
+    "http://localhost:8080/news/",
+    "http://localhost:8080/support/",
+    "http://localhost:8080/contact/",
+    "http://localhost:8080/404.html"
+  ]
+}

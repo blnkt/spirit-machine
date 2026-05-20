@@ -1,13 +1,21 @@
 {% if event %}
 <section class="hero hero-event">
   <p class="hero-eyebrow">Up next</p>
-  <h1 class="hero-title">{{ event.data.title }}</h1>
+  {% if headingLevel == 2 %}
+    <h2 class="hero-title">{{ event.data.title }}</h2>
+  {% else %}
+    <h1 class="hero-title">{{ event.data.title }}</h1>
+  {% endif %}
   <p class="hero-dates">{{ event.data.startDate | eventDateRange(event.data.endDate) }}</p>
   {% if event.data.venue %}
     <p class="hero-venue">{{ event.data.venue }}{% if event.data.location %}, {{ event.data.location }}{% endif %}</p>
   {% endif %}
   {% if event.data.ticketUrl %}
-    <p class="hero-cta"><a class="button button-accent" href="{{ event.data.ticketUrl }}">Tickets</a></p>
+    <p class="hero-cta">
+      <a class="button button-accent" href="{{ event.data.ticketUrl }}" rel="noopener noreferrer">
+        Tickets<span class="visually-hidden"> (opens in new tab)</span>
+      </a>
+    </p>
   {% endif %}
 </section>
 {% endif %}

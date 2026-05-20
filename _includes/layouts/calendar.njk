@@ -6,11 +6,12 @@ section: calendar
   <h1>{{ title }}</h1>
   {{ content | safe }}
 
-  <section class="events-upcoming">
-    <h2>Upcoming</h2>
+  <section class="events-upcoming" aria-labelledby="events-upcoming-heading">
+    <h2 id="events-upcoming-heading">Upcoming</h2>
     {% if collections.upcomingEvents | length %}
       <div class="event-list">
         {% for item in collections.upcomingEvents %}
+          {% set past = false %}
           {% include "components/event-card.njk" %}
         {% endfor %}
       </div>
@@ -19,11 +20,12 @@ section: calendar
     {% endif %}
   </section>
 
-  <section class="events-past">
-    <h2>Past</h2>
+  <section class="events-past" aria-labelledby="events-past-heading">
+    <h2 id="events-past-heading">Past</h2>
     {% if collections.pastEvents | length %}
       <div class="event-list">
         {% for item in collections.pastEvents %}
+          {% set past = true %}
           {% include "components/event-card.njk" %}
         {% endfor %}
       </div>

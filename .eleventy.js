@@ -1,7 +1,7 @@
 const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
-const htmlmin = require("html-minifier");
+const htmlmin = require("html-minifier-next");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = function(eleventyConfig) {

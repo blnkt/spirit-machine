@@ -9,12 +9,15 @@
       height="48"
     >
   </a>
+  <div class="site-nav site-nav--desktop">
+    {% include "components/nav.njk" %}
+  </div>
   <details class="nav-disclosure">
     <summary class="nav-disclosure-summary">
       <span class="nav-disclosure-label">Menu</span>
       <span class="nav-disclosure-icon" aria-hidden="true"></span>
     </summary>
-    <div id="site-nav" class="site-nav">
+    <div class="site-nav site-nav--mobile">
       {% include "components/nav.njk" %}
     </div>
   </details>

@@ -159,6 +159,11 @@ h1, h2, h3, .hero-title, .hero-release-title {
 	background: var(--background);
 }
 
+.site-nav--desktop {
+	display: none;
+	margin-left: auto;
+}
+
 .nav-disclosure {
 	margin-left: auto;
 }
@@ -744,7 +749,7 @@ textarea[aria-invalid="true"] {
 		transform: rotate(-45deg);
 	}
 
-	.nav-disclosure .site-nav {
+	.nav-disclosure .site-nav--mobile {
 		position: absolute;
 		top: 100%;
 		left: 0;
@@ -780,11 +785,11 @@ textarea[aria-invalid="true"] {
 		flex-wrap: nowrap;
 	}
 
-	.nav-disclosure > summary {
-		display: none;
+	.site-nav--desktop {
+		display: block;
 	}
 
-	.nav-disclosure .site-nav {
-		display: block !important;
+	.nav-disclosure {
+		display: none;
 	}
 }

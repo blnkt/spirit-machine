@@ -69,7 +69,7 @@
 
     disclosure.addEventListener("click", function (event) {
       if (!isMobileNav()) return;
-      if (event.target.closest("a") && disclosure.open) {
+      if (event.target.closest(".site-nav--mobile a") && disclosure.open) {
         disclosure.open = false;
       }
     });

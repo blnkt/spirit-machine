@@ -2,6 +2,9 @@
   "name": "eleventy-netlify-boilerplate",
   "version": "1.0.5",
   "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "npx @11ty/eleventy",
     "watch": "npx @11ty/eleventy --watch",
@@ -28,7 +31,8 @@
     "clean-css": "^5.3.3",
     "html-minifier-next": "^6.2.6",
     "luxon": "^3.7.1",
+    "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
-    "uglify-js": "^3.19.3"
+    "terser": "^5.47.1"
   }
 }

@@ -1,6 +1,6 @@
 const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
-const UglifyJS = require("uglify-js");
+const { minify: minifyJs } = require("terser");
 const htmlmin = require("html-minifier-next");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
@@ -53,13 +53,14 @@ module.exports = function(eleventyConfig) {
   });
 
   // Minify JS
-  eleventyConfig.addFilter("jsmin", function(code) {
-    let minified = UglifyJS.minify(code);
-    if (minified.error) {
-      console.log("UglifyJS error: ", minified.error);
+  eleventyConfig.addFilter("jsmin", async function(code) {
+    try {
+      const result = await minifyJs(code);
+      return result.code ?? code;
+    } catch (err) {
+      console.log("Terser error: ", err);
       return code;
     }
-    return minified.code;
   });
 
   // Minify HTML output

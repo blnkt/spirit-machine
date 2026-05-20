@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 section: page
 ---
-<h1>{{ title }}</h1>
-
-{{ content | safe }}
+<div class="content-wrap prose">
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+</div>

@@ -10,14 +10,6 @@ eleventyNavigation:
 section: support
 ---
 
-## Spring 2026 membership dues
-
-Tuition is offered on a tiered sliding scale and is due by **February 1st** (installments available on request):
-
-- **Supporting level:** $330
-- **Standard:** $270 and up
-- **Reduced:** $180 and up
-
 The sliding scale reflects participants’ current economic means and recognizes economic and cultural patterns that have affected access to wealth over time (including BIPOC, trans, and disabled communities, among others).
 
 **Everyone is welcome to full choir membership regardless of ability to pay.** If you are motivated to sing and none of these options let you participate without significant financial hardship, please [reach out](/contact/) for additional scholarships. We want you here.

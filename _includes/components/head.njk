@@ -2,15 +2,28 @@
   <meta charset="utf-8">
   <meta name="generator" content="{{ eleventy.generator }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or metadata.title }}</title>
+  <title>{% if title and title != metadata.title %}{{ title }} · {% endif %}{{ metadata.title }}</title>
   <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}">
+  {% set shareTitle = title or metadata.title %}
+  {% set shareDescription = metaDescription or metadata.description %}
+  {% set shareImage = ogImage or '/static/img/og-default.svg' %}
+  {% set shareUrl = metadata.url + (page.url or '/') %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ shareTitle }}">
+  <meta property="og:description" content="{{ shareDescription }}">
+  <meta property="og:url" content="{{ shareUrl }}">
+  <meta property="og:image" content="{{ metadata.url }}{{ shareImage | url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{ '/static/img/sp-logo-sm.png' | url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   {% set css %}
     {% include "assets/css/inline.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
-  {# Uncomment below if you want to include minified inline JavaScript #}
-  {# {% set js %}
+  {% set js %}
     {% include "assets/js/inline.js" %}
   {% endset %}
-  <script>{{ js | jsmin | safe }}</script> #}
+  <script>{{ js | jsmin | safe }}</script>
 </head>

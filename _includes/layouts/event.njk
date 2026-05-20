@@ -2,19 +2,19 @@
 layout: layouts/base.njk
 section: event
 ---
-
-<article class="event-detail">
-  <h1>{{ title }}</h1>
-  <p class="event-dates">{{ startDate | eventDateRange(endDate) }}</p>
-  {% if venue %}
-    <p class="event-venue">{{ venue }}{% if location %}, {{ location }}{% endif %}</p>
-  {% endif %}
-  {% if ticketUrl %}
-    <p><a class="button" href="{{ ticketUrl }}">Tickets</a></p>
-  {% endif %}
-  {{ content | safe }}
-</article>
-
-<nav>
-  <a href="{{ '/calendar/' | url }}">← Calendar</a>
-</nav>
+<div class="content-wrap prose">
+  <article class="event-detail">
+    <h1>{{ title }}</h1>
+    <p class="event-dates">{{ startDate | eventDateRange(endDate) }}</p>
+    {% if venue %}
+      <p class="event-venue">{{ venue }}{% if location %}, {{ location }}{% endif %}</p>
+    {% endif %}
+    {% if ticketUrl %}
+      <p><a class="button button-accent" href="{{ ticketUrl }}">Tickets</a></p>
+    {% endif %}
+    {{ content | safe }}
+  </article>
+  <nav class="page-nav">
+    <a href="{{ '/calendar/' | url }}">← Calendar</a>
+  </nav>
+</div>

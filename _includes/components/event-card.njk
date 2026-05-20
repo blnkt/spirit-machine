@@ -1,13 +1,17 @@
 <article class="event-card">
-  <h2><a href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
-  <p class="event-dates">{{ item.data.startDate | eventDateRange(item.data.endDate) }}</p>
-  {% if item.data.venue %}
-    <p class="event-venue">{{ item.data.venue }}{% if item.data.location %}, {{ item.data.location }}{% endif %}</p>
-  {% endif %}
-  {% if item.data.summary %}
-    <p>{{ item.data.summary }}</p>
-  {% endif %}
-  {% if item.data.ticketUrl %}
-    <p><a class="button" href="{{ item.data.ticketUrl }}">Tickets</a></p>
-  {% endif %}
+  <div class="event-card-date">
+    <time datetime="{{ item.data.startDate | machineDate }}">{{ item.data.startDate | eventDateRange(item.data.endDate) }}</time>
+  </div>
+  <div class="event-card-body">
+    <h2><a href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
+    {% if item.data.venue %}
+      <p class="event-venue">{{ item.data.venue }}{% if item.data.location %}, {{ item.data.location }}{% endif %}</p>
+    {% endif %}
+    {% if item.data.summary %}
+      <p>{{ item.data.summary }}</p>
+    {% endif %}
+    {% if item.data.ticketUrl %}
+      <p><a class="button button-accent" href="{{ item.data.ticketUrl }}">Tickets</a></p>
+    {% endif %}
+  </div>
 </article>

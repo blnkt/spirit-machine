@@ -2,13 +2,13 @@
 layout: layouts/base.njk
 section: music
 ---
+<div class="content-wrap content-wrap-wide">
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
 
-<h1>{{ title }}</h1>
-
-{{ content | safe }}
-
-<section class="release-grid">
-  {% for item in collections.music %}
-    {% include "components/release-card.njk" %}
-  {% endfor %}
-</section>
+  <section class="release-grid">
+    {% for item in collections.music %}
+      {% include "components/release-card.njk" %}
+    {% endfor %}
+  </section>
+</div>

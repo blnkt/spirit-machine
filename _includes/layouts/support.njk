@@ -2,11 +2,20 @@
 layout: layouts/base.njk
 section: support
 ---
-<h1>{{ title }}</h1>
+<div class="content-wrap prose">
+  <h1>{{ title }}</h1>
 
-{{ content | safe }}
+  <h2>Spring 2026 membership dues</h2>
+  <p>Tuition is due by <strong>February 1st</strong> (installments available on request).</p>
 
-<p><a class="button" href="{{ '/contact/' | url }}">Join or ask about scholarships</a></p>
-{% if site.donateUrl %}
-<p><a href="{{ site.donateUrl }}">Additional financial support</a></p>
-{% endif %}
+  {% include "components/tier-cards.njk" %}
+
+  {{ content | safe }}
+
+  <p class="support-cta">
+    <a class="button" href="{{ '/contact/' | url }}">Join or ask about scholarships</a>
+  </p>
+  {% if site.donateUrl %}
+    <p class="support-secondary"><a href="{{ site.donateUrl }}">Additional financial support</a></p>
+  {% endif %}
+</div>

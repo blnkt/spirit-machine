@@ -6,13 +6,26 @@ section: home
 {% set featuredEvent = collections.featuredEvent[0] %}
 {% set featuredRelease = collections.featuredRelease[0] %}
 
-{% set event = featuredEvent %}
-{% include "components/hero-event.njk" %}
-{% set release = featuredRelease %}
-{% include "components/hero-release.njk" %}
+<div class="home-page">
+  {% if featuredEvent %}
+    <div class="hero-bleed">
+      {% set event = featuredEvent %}
+      {% include "components/hero-event.njk" %}
+    </div>
+  {% endif %}
 
-{% if content %}
-<div class="home-intro">
-  {{ content | safe }}
+  <div class="content-wrap">
+    {% if featuredRelease %}
+      <section class="home-release">
+        {% set release = featuredRelease %}
+        {% include "components/hero-release.njk" %}
+      </section>
+    {% endif %}
+
+    {% if content %}
+      <div class="home-intro prose">
+        {{ content | safe }}
+      </div>
+    {% endif %}
+  </div>
 </div>
-{% endif %}

@@ -1,0 +1,18 @@
+<header class="site-header">
+  <a class="site-logo" href="{{ '/' | url }}">
+    <img
+      class="site-logo-image"
+      src="{{ '/static/img/sp-logo-sm.png' | url }}"
+      alt="{{ site.choirName or metadata.title }}"
+      width="180"
+      height="48"
+    >
+  </a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+    <span class="nav-toggle-label">Menu</span>
+    <span class="nav-toggle-icon" aria-hidden="true"></span>
+  </button>
+  <div id="site-nav" class="site-nav">
+    {% include "components/nav.njk" %}
+  </div>
+</header>

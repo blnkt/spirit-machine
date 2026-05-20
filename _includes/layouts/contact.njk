@@ -2,8 +2,8 @@
 layout: layouts/base.njk
 section: contact
 ---
-<h1>{{ title }}</h1>
-
-{{ content | safe }}
-
-{% include "components/form.njk" %}
+<div class="content-wrap prose">
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+  {% include "components/form.njk" %}
+</div>

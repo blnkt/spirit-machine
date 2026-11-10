@@ -1,13 +1,6 @@
 <footer class="site-footer">
   <div class="site-footer-inner">
     {% include "components/social-links.njk" %}
-    <p class="footer-links">
-      <a href="{{ '/support/' | url }}">Donate</a>
-      <a href="{{ '/contact/' | url }}">Contact</a>
-      {% if site.contactEmail %}
-        <a href="mailto:{{ site.contactEmail }}">Email</a>
-      {% endif %}
-    </p>
-    <p class="footer-copy"><small>© {{ metadata.title }}</small></p>
+    <p class="footer-copy"><small>© {{ build.year }} {{ site.choirName or metadata.title }}</small></p>
   </div>
 </footer>

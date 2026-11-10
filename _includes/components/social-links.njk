@@ -2,10 +2,17 @@
 <nav class="social-links" aria-label="Social media">
   <ul>
     {% for link in site.social %}
+      {% set isMailto = link.url and link.url.indexOf("mailto:") == 0 %}
       <li>
-        <a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">
+        <a
+          href="{{ link.url }}"
+          {% if not isMailto %}rel="noopener noreferrer" target="_blank"{% endif %}
+        >
           <span class="social-icon social-icon-{{ link.label | lower }}" aria-hidden="true"></span>
-          <span class="social-label">{{ link.label }}<span class="visually-hidden"> (opens in new tab)</span></span>
+          <span class="social-label">
+            {{ link.label }}
+            {% if not isMailto %}<span class="visually-hidden"> (opens in new tab)</span>{% endif %}
+          </span>
         </a>
       </li>
     {% endfor %}

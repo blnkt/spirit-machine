@@ -8,5 +8,3 @@ eleventyNavigation:
   key: Calendar
   order: 1
 ---
-
-Upcoming and past performances.

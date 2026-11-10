@@ -1,138 +1,98 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bbf28a84-4bdb-407b-a2fa-32628d27fa3d/deploy-status)](https://app.netlify.com/sites/eleventy-netlify-boilerplate/deploys)
+# Spirit Machine
 
-# Eleventy Netlify Boilerplate
+Website for **Spirit Machine**, a community choir in Portland, Oregon.
 
-### Click the button below to try it out!
+Live site: [spiritmachine.org](https://spiritmachine.org)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-netlify-boilerplate&stack=cms)
+## Stack
 
-## What is it?
+| Piece | Role |
+|--------|------|
+| [Eleventy 3](https://www.11ty.dev/) | Static site generator (Markdown + Nunjucks → HTML) |
+| [Decap CMS](https://www.decapcms.org/) | Browser editing UI at `/admin/` |
+| [Netlify](https://www.netlify.com/) | Build, host, Identity + Git Gateway for CMS auth |
+| GitHub | Source of truth (`main` branch) |
 
-A simple template for building a fast, pre-generated HTML website using the [Eleventy](https://www.11ty.dev/) static site generator. With [Decap CMS](https://www.decapcms.org/) (formerly Netlify CMS) baked-in, ready to deploy to [Netlify](https://www.netlify.com) in a couple of clicks.
+Content lives in the repo as Markdown and JSON. There is **no GitHub Actions build** — Netlify builds on push.
 
-Use it as a starter for your own Jamstack projects, or as an easy way to get started building websites with Eleventy.
+## Requirements
 
-Based on the [Eleventy Base Blog](https://github.com/11ty/eleventy-base-blog) repo (see there for additional info on Eleventy usage).
-
-## [Demo Site](https://eleventy-netlify-boilerplate.netlify.app/)
-
-## Features
-
-* Now uses Eleventy 3
-* Sample pages and a blog with tag support
-* Decap CMS with editor previews (thanks [@biilmann](https://github.com/biilmann)!)
-* Scores 100/100/100/100 in Lighthouse performance tests 🔥
-* Maintenance-free post author archives
-* Automatic navigation menus with [Eleventy Navigation](https://www.11ty.dev/docs/plugins/navigation/)
-* Includes a working contact form
-* CSS 2kb minified, inlined for fastest page render
-* Optional pipeline for your minified inline JS
-* Pre-builds and minifies your HTML too
-* Uses Markdown files for content
-* Uses Nunjucks (or Liquid) templates for layout
-* 100% Javascript framework free
-* Continuous Deployment workflow via Netlify
-
-## Want to try it out now?
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-netlify-boilerplate&stack=cms)
-
-Clicking the button above will deploy a copy of the demo website to your Netlify
-account (you can create an account during this process if you don't have one)
-and everything needed for running the CMS:
-
-* A new repository in your GitHub account with the code
-* Full Continuous Deployment to Netlify's global CDN network
-* Control users and access with Netlify Identity
-* Manage content with Decap CMS
-* Process form data with Netlify Forms
-
-### Set Up Authentication
-
-After deploying this project, Netlify Identity will add you as a CMS user and
-will email you an invite. It is not necessary to accept this invite if you wish
-to use an
-[OAuth provider](https://www.netlify.com/docs/identity/#external-provider-login)
-(e.g. Github) to manage authentication for your CMS.
-
-It is recommended to use this method of authentication as it removes the need
-for an email & password to log in to the CMS and is generally more secure. You
-will need to add an OAuth provider in your Netlify app settings under
-"Settings" > "Identity" > "External providers".
-
-Once you've added an OAuth provider, navigate to `/admin` on your site, select your provider from the
-list, and you should then be logged into your CMS. Cool huh?
-
-### Set Up Identity Email Templates
-
-In order for Netlify Identity service emails (Signup, Reset Password etc) to function correctly with Decap CMS, you will need to tell Netlify where your email templates are located.
-
-Inside this repo under `/admin/email-templates/` are four Netlify Identity email templates. Inside your Netlify site settings, you will need to navigate to: "Site Settings > Identity" and look there for the four email template configuration boxes: Invitation template, Confirmation template, Recovery template, and Email change template. Inside each, edit the "Path to template" field to match the root-relative path to each template. For example:
-
-`/admin/email-templates/invitation.html`
-
-Now you're all set; you can invite new CMS users and begin editing content!
-
-## Gotchas
-
-If you change the repo that was created at deploy time from public to private, you'll need to regenerate your token,
-as the token generated using the deploy to Netlify button can only access public repositories. To
-regenerate your token, head to "Settings" in your Netlify site dashboard, go to the "Identity"
-section, then scroll to "Services" where you'll see an "Edit settings" button. Click that and you'll
-see a text link to "Generate access token in GitHub".
-
-If you need any help with setting up Decap CMS, you can reach out to the Netlify team in the [Decap CMS Gitter](https://gitter.im/netlify/netlifycms).
+- Node.js **18+**
 
 ## Local development
 
-### 1. Clone this repository:
-
-```
-git clone https://github.com/danurbanowicz/eleventy-netlify-boilerplate.git my-blog-name
-```
-
-
-### 2. Navigate to the directory
-
-```
-cd my-blog-name
+```bash
+git clone https://github.com/blnkt/spirit-machine.git
+cd spirit-machine
+npm install
+npm run serve
 ```
 
-Specifically have a look at `.eleventy.js` to see if you want to configure any Eleventy options differently.
+Then open [http://localhost:8080/](http://localhost:8080/).
 
-### 3. Install dependencies locally
+### npm scripts
+
+| Script | What it does |
+|--------|----------------|
+| `npm run serve` | Build + local server with live reload (port 8080) |
+| `npm run build` | Production build into `_site/` |
+| `npm run watch` | Rebuild on file changes (no server) |
+| `npm run a11y` | Build, serve `_site` briefly, run pa11y-ci (WCAG 2.2 AA) |
+| `npm run debug` | Eleventy with `DEBUG=*` |
+
+Site-wide settings live in `_data/site.json` and `_data/metadata.json` (title, description, canonical URL).
+
+## Project layout (high level)
 
 ```
-npm install @11ty/eleventy
+pages/           # Home, Calendar, Videos, About
+events/          # Calendar event Markdown
+_data/           # site.json, metadata.json, videos.json
+_includes/       # Layouts, components, inline CSS/JS
+admin/           # Decap CMS config + Identity email templates
+static/img/      # Images / media for the CMS
+netlify.toml     # Build command + publish directory
 ```
 
-### 4. Edit _data/metadata.json
+## Content editing (Decap CMS)
 
-This file contains your site title and author details, and can be used to store any other commonly used site data.
+### Production (`/admin/`)
 
-### 5. Run Eleventy (builds the site)
+1. Netlify **Identity** and **Git Gateway** must be enabled for the site.
+2. Invite editors under Identity → Users (or use an Identity external provider such as GitHub).
+3. Point Identity email templates at the files under `admin/email-templates/` (e.g. `/admin/email-templates/invitation.html`).
+4. Open `https://spiritmachine.org/admin/` (or your Netlify URL), sign in, and edit.
 
+Backend is `git-gateway` on the `main` branch (`admin/config.yml`). Saves commit to the repo and trigger a Netlify deploy.
+
+**Private repo note:** If the GitHub repo is private, regenerate the Git Gateway GitHub access token in Netlify → Identity → Services → Git Gateway.
+
+### Local CMS (optional)
+
+1. Uncomment `local_backend: true` in `admin/config.yml`.
+2. In one terminal: `npx decap-server`
+3. In another: `npm run serve`
+4. Open `/admin/` — edits write to the local filesystem (no Netlify login).
+
+Remember to comment `local_backend` out again before relying on production Identity auth.
+
+## Deployment
+
+Configured in `netlify.toml`:
+
+- **Build command:** `npm run build`
+- **Publish directory:** `_site`
+
+Netlify is connected to this GitHub repo. Pushes to `main` (and CMS commits via Git Gateway) kick off a deploy. Preview deploys may also run for pull requests if enabled on the Netlify site.
+
+## Accessibility
+
+```bash
+npm run a11y
 ```
-npx @11ty/eleventy
-```
 
-Or build automatically when a template changes:
-```
-npx @11ty/eleventy --watch
-```
+Runs [pa11y-ci](https://github.com/pa11y/pa11y-ci) against key pages (axe + HTML CodeSniffer, WCAG 2.2 AA). The script starts a temporary static server on port **8099**, so it does not require `npm run serve` already running.
 
-Or build and host locally for local development:
-```
-npx @11ty/eleventy --serve
-```
+## Origin
 
-Or in debug mode:
-```
-DEBUG=* npx @11ty/eleventy
-```
-
-## Bug reports, feature requests, etc
-
-This is an ongoing project and I welcome contributions and suggestions! Feel free to submit a PR.
-
-If you need any help with setting up Decap CMS, you can reach out to the Netlify team in the [Decap CMS Gitter](https://gitter.im/netlify/netlifycms).
+Originally based on [eleventy-netlify-boilerplate](https://github.com/danurbanowicz/eleventy-netlify-boilerplate); adapted for Spirit Machine.

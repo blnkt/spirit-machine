@@ -10,7 +10,7 @@
     "watch": "npx @11ty/eleventy --watch",
     "serve": "npx @11ty/eleventy --serve",
     "debug": "DEBUG=* npx @11ty/eleventy",
-    "a11y": "npm run build && npx pa11y-ci --config .pa11yci"
+    "a11y": "npm run build && start-server-and-test \"npx --yes serve _site -l 8099\" http://127.0.0.1:8099 \"pa11y-ci --config .pa11yci\""
   },
   "repository": {
     "type": "git",
@@ -23,15 +23,16 @@
   },
   "homepage": "https://spiritmachine.org",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy": "^3.1.8",
     "@11ty/eleventy-navigation": "^1.0.4",
     "clean-css": "^5.3.3",
-    "html-minifier-next": "^6.2.6",
+    "html-minifier-next": "^6.2.11",
     "luxon": "^3.7.1",
     "markdown-it": "^14.3.3",
-    "markdown-it-anchor": "^9.2.0",
-    "terser": "^5.47.1",
-    "pa11y-ci": "^4.0.0"
+    "markdown-it-anchor": "^9.2.1",
+    "pa11y-ci": "^4.0.0",
+    "start-server-and-test": "^2.1.5",
+    "terser": "^5.51.2"
   },
   "overrides": {
     "linkify-it": "5.0.2"

@@ -7,10 +7,10 @@
     ]
   },
   "urls": [
-    "http://localhost:8080/",
-    "http://localhost:8080/about/",
-    "http://localhost:8080/calendar/",
-    "http://localhost:8080/videos/",
-    "http://localhost:8080/404.html"
+    "http://127.0.0.1:8099/",
+    "http://127.0.0.1:8099/about/",
+    "http://127.0.0.1:8099/calendar/",
+    "http://127.0.0.1:8099/videos/",
+    "http://127.0.0.1:8099/404.html"
   ]
 }

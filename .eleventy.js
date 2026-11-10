@@ -25,24 +25,9 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => a.data.startDate - b.data.startDate);
   });
 
-  eleventyConfig.addCollection("music", collection => {
-    return collection.getFilteredByGlob("music/*.md").sort((a, b) => {
-      const orderA = a.data.order ?? 0;
-      const orderB = b.data.order ?? 0;
-      if (orderA !== orderB) return orderA - orderB;
-      return (b.data.year ?? 0) - (a.data.year ?? 0);
-    });
-  });
-
   eleventyConfig.addCollection("featuredEvent", collection => {
     return collection
       .getFilteredByGlob("events/*.md")
-      .filter(item => item.data.featured);
-  });
-
-  eleventyConfig.addCollection("featuredRelease", collection => {
-    return collection
-      .getFilteredByGlob("music/*.md")
       .filter(item => item.data.featured);
   });
 
@@ -145,10 +130,14 @@ module.exports = function(eleventyConfig) {
   let opts = {
     permalink: false
   };
+  const markdownLibrary = markdownIt(options).use(markdownItAnchor, opts);
 
-  eleventyConfig.setLibrary("md", markdownIt(options)
-    .use(markdownItAnchor, opts)
-  );
+  eleventyConfig.setLibrary("md", markdownLibrary);
+
+  eleventyConfig.addFilter("markdown", content => {
+    if (!content) return "";
+    return markdownLibrary.render(content);
+  });
 
   return {
     templateFormats: ["md", "njk", "liquid"],

@@ -1,9 +1,0 @@
----
-title: Echoes in the Hall
-releaseType: Single
-year: 2026
-coverImage: /static/img/cover-echoes.svg
-listenUrl: https://example.com/listen/echoes
-featured: true
-order: 1
----

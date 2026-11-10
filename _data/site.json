@@ -1,20 +1,18 @@
 {
   "choirName": "Spirit Machine",
   "tagline": "A community choir dedicated to working hard, making great music, and having a great time",
-  "contactEmail": "hello@spiritmachine.example",
-  "donateUrl": "https://example.com/donate",
   "social": [
     {
       "label": "YouTube",
-      "url": "https://www.youtube.com/"
+      "url": "https://www.youtube.com/@Spiritmachinechoir"
     },
     {
       "label": "Instagram",
-      "url": "https://www.instagram.com/"
+      "url": "https://www.instagram.com/spiritmachinechoir/"
     },
     {
-      "label": "Spotify",
-      "url": "https://open.spotify.com/"
+      "label": "Email",
+      "url": "mailto:pleopoldfreeman@proton.me"
     }
   ]
 }

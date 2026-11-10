@@ -20,14 +20,30 @@ collections:
         fields:
           - { label: "Choir name", name: "choirName", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "string", required: false }
-          - { label: "Contact email", name: "contactEmail", widget: "string" }
-          - { label: "Donate URL", name: "donateUrl", widget: "string" }
           - label: "Social links"
             name: "social"
             widget: "list"
             fields:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "URL", name: "url", widget: "string" }
+      - name: "videos"
+        label: "Videos page"
+        file: "_data/videos.json"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.heading}}"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "markdown", required: false }
+              - label: "Videos"
+                name: "videos"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "YouTube video ID", name: "youtubeId", widget: "string", hint: "The ID from youtube.com/watch?v=VIDEO_ID" }
+                  - { label: "Title", name: "title", widget: "string", required: false }
 
   - name: "events"
     label: "Event"
@@ -44,32 +60,6 @@ collections:
       - { label: "Featured on home", name: "featured", widget: "boolean", default: false }
       - { label: "Summary", name: "summary", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
-
-  - name: "music"
-    label: "Release"
-    folder: "music"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Release type", name: "releaseType", widget: "string", hint: "e.g. Single, Album, Live" }
-      - { label: "Year", name: "year", widget: "number" }
-      - { label: "Cover image", name: "coverImage", widget: "image", required: false }
-      - { label: "Listen URL", name: "listenUrl", widget: "string", required: false }
-      - { label: "Featured on home", name: "featured", widget: "boolean", default: false }
-      - { label: "Sort order", name: "order", widget: "number", default: 0, value_type: "int" }
-
-  - name: "news"
-    label: "News"
-    folder: "posts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish date", name: "date", widget: "datetime" }
-      - { label: "Summary", name: "summary", widget: "text", required: false }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-      - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "pages"
     label: "Page"

@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+section: videos
+---
+<div class="content-wrap">
+  <h1>{{ title }}</h1>
+
+  {% for section in videos.sections %}
+    <section class="video-section" aria-labelledby="video-section-{{ loop.index }}">
+      <h2 id="video-section-{{ loop.index }}">{{ section.heading }}</h2>
+      {% if section.description %}
+        <div class="video-section-description prose">
+          {{ section.description | markdown | safe }}
+        </div>
+      {% endif %}
+      {% if section.videos and section.videos.length %}
+        <ul class="video-grid">
+          {% for video in section.videos %}
+            <li class="video-grid-item">
+              <div class="video-embed">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/{{ video.youtubeId }}?rel=0&modestbranding=1"
+                  title="{{ video.title or 'YouTube video' }}"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              {% if video.title %}
+                <p class="video-title">{{ video.title }}</p>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+  {% endfor %}
+
+  {% if content %}
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+  {% endif %}
+</div>

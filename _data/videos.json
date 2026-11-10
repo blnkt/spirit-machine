@@ -1,0 +1,30 @@
+{
+  "sections": [
+    {
+      "heading": "Spring 2026",
+      "description": "[Spirit Machine Performance](https://www.youtube.com/playlist?list=PLB_LJEIN3yQw) at the Rose City Park Presbyterian, Portland, OR on May 22, 2026.",
+      "videos": [
+        {
+          "youtubeId": "FFv1ON7OgS8",
+          "title": "Spirit Machine - Like a Ship (Pastor T.L. Barrett)"
+        },
+        {
+          "youtubeId": "5qTW_AYyDLw",
+          "title": "Spirit Machine - The Light Princess (Hazel Ra)"
+        },
+        {
+          "youtubeId": "kYPgRdFeDCE",
+          "title": "Spirit Machine - Ndandihleli (trad. Xhosa)"
+        },
+        {
+          "youtubeId": "zaGmUmkzBAk",
+          "title": "Spirit Machine - This Fall (Big Tree)"
+        },
+        {
+          "youtubeId": "3Fj7Qt4K-_s",
+          "title": "Spirit Machine - Para Transcribir (Lido Pimienta)"
+        }
+      ]
+    }
+  ]
+}

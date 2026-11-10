@@ -4,7 +4,6 @@ section: home
 ---
 
 {% set featuredEvent = collections.featuredEvent[0] %}
-{% set featuredRelease = collections.featuredRelease[0] %}
 
 <div class="home-page">
   <h1 class="visually-hidden">{{ site.choirName or metadata.title }}</h1>
@@ -18,14 +17,6 @@ section: home
   {% endif %}
 
   <div class="content-wrap">
-    {% if featuredRelease %}
-      <section class="home-release" aria-labelledby="home-release-heading">
-        <h2 id="home-release-heading" class="visually-hidden">Featured release</h2>
-        {% set release = featuredRelease %}
-        {% include "components/hero-release.njk" %}
-      </section>
-    {% endif %}
-
     {% if content %}
       <div class="home-intro prose">
         {{ content | safe }}

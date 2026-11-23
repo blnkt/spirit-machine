@@ -2,7 +2,7 @@
   "sections": [
     {
       "heading": "Spring 2026",
-      "description": "[Spirit Machine Performance](https://www.youtube.com/playlist?list=PLB_LJEIN3yQw) at the Rose City Park Presbyterian, Portland, OR on May 22, 2026.",
+      "description": "[Spirit Machine Performance](https://www.youtube.com/playlist?list=PLB_LJEIN3yQw) at the Rose City Park Presbyterian, Portland, OR, May 2026.",
       "videos": [
         {
           "youtubeId": "FFv1ON7OgS8",
@@ -23,6 +23,20 @@
         {
           "youtubeId": "3Fj7Qt4K-_s",
           "title": "Spirit Machine - Para Transcribir (Lido Pimienta)"
+        }
+      ]
+    },
+    {
+      "heading": "Fall 2025",
+      "description": "Spirit Machine at Waverly Heights Church, Portland, OR, December 2025",
+      "videos": [
+        {
+          "youtubeId": "3nfqZNn_qx4",
+          "title": "Trey McLaughlin - Better is One Day"
+        },
+        {
+          "youtubeId": "P2DV2ZiwQVw",
+          "title": "Haley Heynderickx -- Seed of a Seed (Dec 2025)"
         }
       ]
     }

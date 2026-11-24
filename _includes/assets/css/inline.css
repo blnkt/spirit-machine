@@ -20,8 +20,8 @@
 	--text-muted: #5a4a55;
 	--border: #e8c9a0;
 	--footer-bg: var(--primary-dark);
-	--footer-text: #f6e1c6;
-	--footer-text-muted: #c5d4ef;
+	--footer-text: #ffffff;
+	--footer-text-muted: #e8eef8;
 	--violet: #8963ab;
 	--ocean: #355f8a;
 	/* Brand refs (style guide / future use) */
@@ -59,7 +59,7 @@
 	--gradient-hero: linear-gradient(
 		180deg,
 		var(--violet) 0%,
-		var(--primary-dark) 42%,
+		var(--primary-dark) 22%,
 		var(--ocean) 100%
 	);
 	--gradient-footer: linear-gradient(
@@ -87,8 +87,8 @@
 	--text-muted: #b8c4d8;
 	--border: #2e3d58;
 	--footer-bg: #0a101c;
-	--footer-text: #f6e1c6;
-	--footer-text-muted: #9aabc4;
+	--footer-text: #ffffff;
+	--footer-text-muted: #e8eef8;
 	--violet: #a888c8;
 	--ocean: #6a8fb8;
 	--gold: #fdc03e;
@@ -296,8 +296,8 @@ h1, h2, h3, .hero-title {
 	padding: 0.4rem 0.75rem;
 	border-radius: var(--radius);
 	text-decoration: none;
-	font-weight: 600;
-	font-size: 1.25rem;
+	font-weight: 700;
+	font-size: 1.25rem; /* ≥1.2rem + bold → WCAG large text (3:1) */
 	color: #fff;
 }
 
@@ -710,7 +710,7 @@ a.button-accent:hover,
 	padding: 0.4rem 0.85rem;
 	border-radius: calc(var(--radius) - 0.05rem);
 	background: transparent;
-	color: var(--footer-text-muted);
+	color: #ffffff;
 	font: inherit;
 	font-weight: 700;
 	font-size: 0.85rem;
@@ -752,6 +752,11 @@ a.button-accent:hover,
 	.nav-list a {
 		padding: 0.4rem 0.5rem;
 		font-size: 0.875rem;
+	}
+
+	.site-header .nav-list a {
+		font-size: 1.2rem;
+		font-weight: 700;
 	}
 
 	.event-card {

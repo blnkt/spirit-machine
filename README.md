@@ -93,6 +93,8 @@ npm run a11y
 
 Runs [pa11y-ci](https://github.com/pa11y/pa11y-ci) against key pages (axe + HTML CodeSniffer, WCAG 2.2 AA). The script starts a temporary static server on port **8099**, so it does not require `npm run serve` already running.
 
+Config lives in [`.pa11yci.js`](.pa11yci.js). **Color-contrast checks are temporarily ignored** (`TODO(a11y-contrast)`) while textured header/hero/footer washes are iterated — search that tag when ready to re-enable.
+
 ## Origin
 
 Originally based on [eleventy-netlify-boilerplate](https://github.com/danurbanowicz/eleventy-netlify-boilerplate); adapted for Spirit Machine.

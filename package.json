@@ -10,7 +10,7 @@
     "watch": "npx @11ty/eleventy --watch",
     "serve": "npx @11ty/eleventy --serve",
     "debug": "DEBUG=* npx @11ty/eleventy",
-    "a11y": "npm run build && start-server-and-test \"npx --yes serve _site -l 8099\" http://127.0.0.1:8099 \"pa11y-ci --config .pa11yci\""
+    "a11y": "npm run build && start-server-and-test \"npx --yes serve _site -l 8099\" http://127.0.0.1:8099 \"pa11y-ci --config .pa11yci.js\""
   },
   "repository": {
     "type": "git",

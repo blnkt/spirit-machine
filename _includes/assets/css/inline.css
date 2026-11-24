@@ -33,6 +33,10 @@
 	--wash-lilac: #8e67a9;
 	--wash-pink: #c64a78;
 	--wash-rose: #c34e71;
+	/* Hero/main/footer wash anchors — locked light values in both themes */
+	--wash-violet: #8963ab;
+	--wash-royal: #2b4dab;
+	--wash-ocean: #355f8a;
 	--font-display: "Fraunces", Georgia, "Times New Roman", serif;
 	--font-body: "Nunito Sans", "Avenir", "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 	--gutter: clamp(1rem, 3vw, 2.5rem);
@@ -58,20 +62,20 @@
 	);
 	--gradient-hero: linear-gradient(
 		180deg,
-		var(--violet) 0%,
-		var(--primary-dark) 22%,
-		var(--ocean) 100%
+		var(--wash-violet) 0%,
+		var(--wash-royal) 22%,
+		var(--wash-ocean) 100%
 	);
 	--gradient-main: linear-gradient(
 		180deg,
-		var(--ocean) 0%,
-		var(--ocean) 66%,
-		var(--primary-dark) 100%
+		var(--wash-ocean) 0%,
+		var(--wash-ocean) 66%,
+		var(--wash-royal) 100%
 	);
 	--gradient-footer: linear-gradient(
 		180deg,
-		var(--primary-dark) 0%,
-		var(--ocean) 100%
+		var(--wash-royal) 0%,
+		var(--wash-ocean) 100%
 	);
 	color-scheme: light;
 }
@@ -427,11 +431,13 @@ a.button-accent:hover,
 .hero-bleed h2,
 .hero-bleed .hero-title,
 .hero-bleed .hero-title a,
+.hero-bleed .hero-title a:visited,
 .hero-bleed .hero-eyebrow,
 .hero-bleed .hero-dates,
 .hero-bleed .hero-venue,
 .hero-bleed .event-performance-list,
-.hero-bleed .hero-details-link {
+.hero-bleed .hero-details-link,
+.hero-bleed .hero-details-link:visited {
 	color: #ffffff;
 }
 
@@ -487,6 +493,26 @@ a.button-accent:hover,
 .hero-event .event-performance-list {
 	font-size: clamp(1.05rem, 2.5vw, 1.35rem);
 	margin: 0 0 var(--space-1);
+}
+
+.hero-event-with-image {
+	display: grid;
+	grid-template-columns: minmax(0, 1.2fr) minmax(12rem, 22rem);
+	gap: var(--space-4);
+	align-items: center;
+}
+
+.hero-event-media {
+	justify-self: end;
+	width: min(100%, 22rem);
+}
+
+.hero-event-image {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
 }
 
 .event-performance-list li + li {
@@ -578,14 +604,18 @@ a.button-accent:hover,
 }
 
 .event-card {
-	display: grid;
-	grid-template-columns: minmax(10rem, 14rem) 1fr;
-	gap: var(--space-3);
-	align-items: start;
 	padding: var(--space-3);
 	background: var(--surface);
 	border-radius: var(--radius);
 	border: 1px solid var(--border);
+}
+
+.prose img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: var(--space-3) 0;
+	border-radius: var(--radius);
 }
 
 .event-card-date {
@@ -593,6 +623,7 @@ a.button-accent:hover,
 	color: var(--primary);
 	font-size: 0.95rem;
 	line-height: 1.35;
+	margin: 0 0 var(--space-2);
 }
 
 .event-card-date .event-performance-list {
@@ -781,8 +812,14 @@ a.button-accent:hover,
 		font-weight: 700;
 	}
 
-	.event-card {
+	.hero-event-with-image {
 		grid-template-columns: 1fr;
+	}
+
+	.hero-event-media {
+		justify-self: start;
+		order: -1;
+		width: min(100%, 18rem);
 	}
 }
 

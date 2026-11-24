@@ -9,6 +9,7 @@ backend:
 site_url: https://spirit-machine.netlify.app/
 
 media_folder: "static/img"
+public_folder: "/static/img"
 
 collections:
   - name: "settings"
@@ -68,7 +69,16 @@ collections:
       - { label: "Ticket URL", name: "ticketUrl", widget: "string", required: false }
       - { label: "Featured on home", name: "featured", widget: "boolean", default: false }
       - { label: "Summary", name: "summary", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        required: false
+        summary: "{{fields.alt}} {{fields.src}}"
+        hint: "Associated event images (posters, photos). First image is used on the home hero and for social share. You can also insert images in the event body."
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt text", name: "alt", widget: "string", hint: "Describe the image for screen readers" }
+      - { label: "Body", name: "body", widget: "markdown", required: false, hint: "You can also insert images in the body via the markdown image toolbar." }
 
   - name: "pages"
     label: "Page"

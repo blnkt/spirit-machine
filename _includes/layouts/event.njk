@@ -1,6 +1,8 @@
 ---
 layout: layouts/base.njk
 section: event
+eleventyComputed:
+  ogImage: "{% if images and images.length %}{{ images[0].src }}{% endif %}"
 ---
 <div class="content-wrap">
   <div class="content-panel prose">

@@ -62,6 +62,12 @@
 		var(--primary-dark) 22%,
 		var(--ocean) 100%
 	);
+	--gradient-main: linear-gradient(
+		180deg,
+		var(--ocean) 0%,
+		var(--ocean) 66%,
+		var(--primary-dark) 100%
+	);
 	--gradient-footer: linear-gradient(
 		180deg,
 		var(--primary-dark) 0%,
@@ -129,6 +135,10 @@ body {
 
 .main-content {
 	flex: 1;
+	background-color: var(--primary-dark);
+	background-image: var(--wash-noise), var(--gradient-main);
+	background-size: 180px 180px, cover;
+	background-blend-mode: soft-light, normal;
 }
 
 img {
@@ -229,6 +239,19 @@ h1, h2, h3, .hero-title {
 .content-wrap-wide {
 	max-width: var(--layout-wide);
 	width: min(100%, var(--layout-wide));
+}
+
+/* Surface card floating over main’s hero wash — prose measure */
+.content-panel {
+	max-width: var(--layout-prose);
+	width: min(100%, var(--layout-prose));
+	margin-inline: auto;
+	background: var(--surface);
+	color: var(--text);
+	border-radius: var(--radius);
+	/* Inline padding scales with viewport between compact and roomy */
+	padding: var(--space-4) clamp(var(--space-3), 5vw, var(--space-5));
+	box-shadow: var(--shadow);
 }
 
 /* Header — full-bleed bar, content aligns to main shell */
@@ -495,7 +518,6 @@ a.button-accent:hover,
 
 .home-intro {
 	margin-top: 0;
-	max-width: var(--layout-prose);
 }
 
 /* Videos */

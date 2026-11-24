@@ -93,7 +93,7 @@ npm run a11y
 
 Runs [pa11y-ci](https://github.com/pa11y/pa11y-ci) against key pages (axe + HTML CodeSniffer, WCAG 2.2 AA). The script starts a temporary static server on port **8099**, so it does not require `npm run serve` already running.
 
-Config lives in [`.pa11yci.js`](.pa11yci.js). **Color-contrast checks are temporarily ignored** (`TODO(a11y-contrast)`) while textured header/hero/footer washes are iterated — search that tag when ready to re-enable.
+Config lives in [`.pa11yci.js`](.pa11yci.js). Each URL is audited **twice**: default light theme, then dark theme (clicks the footer Dark control first). **Color-contrast checks are temporarily ignored** (`TODO(a11y-contrast)`) while textured header/hero/footer washes are iterated — search that tag when ready to re-enable.
 
 ## Origin
 

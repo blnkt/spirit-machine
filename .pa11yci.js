@@ -1,6 +1,9 @@
 /**
  * pa11y-ci config (JS so we can keep comments).
  *
+ * Audits each listed URL twice: default light theme, then dark theme
+ * (clicks footer `button[data-theme-set="dark"]` before the runners).
+ *
  * ---------------------------------------------------------------------------
  * TODO(a11y-contrast): Re-enable color-contrast checks after wash/text fixes.
  *
@@ -17,6 +20,25 @@
  * and run `npm run a11y` until green.
  * ---------------------------------------------------------------------------
  */
+
+const lightUrls = [
+  "http://127.0.0.1:8099/",
+  "http://127.0.0.1:8099/about/",
+  "http://127.0.0.1:8099/calendar/",
+  "http://127.0.0.1:8099/videos/",
+  "http://127.0.0.1:8099/404.html"
+];
+
+// Theme toggle applies data-theme synchronously; no wait (pa11y waits have no timeout).
+const enableDarkTheme = [
+  'click element footer button[data-theme-set="dark"]'
+];
+
+const darkUrls = lightUrls.map(url => ({
+  url,
+  actions: enableDarkTheme
+}));
+
 module.exports = {
   defaults: {
     standard: "WCAG2AA",
@@ -32,10 +54,9 @@ module.exports = {
     ]
   },
   urls: [
-    "http://127.0.0.1:8099/",
-    "http://127.0.0.1:8099/about/",
-    "http://127.0.0.1:8099/calendar/",
-    "http://127.0.0.1:8099/videos/",
-    "http://127.0.0.1:8099/404.html"
+    // Light (default document theme)
+    ...lightUrls,
+    // Dark (forced via theme toggle before audit)
+    ...darkUrls
   ]
 };

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Spirit Machine">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8963ab"/>
+      <stop offset="45%" stop-color="#2b4dab"/>
+      <stop offset="100%" stop-color="#355f8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#f6e1c6"/>
+  <rect width="1200" height="630" fill="url(#wash)"/>
+  <rect x="72" y="72" width="1056" height="486" fill="none" stroke="#fdc03e" stroke-width="4" opacity="0.9"/>
+  <text x="600" y="300" text-anchor="middle" fill="#f6e1c6" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="700">Spirit Machine</text>
+  <text x="600" y="380" text-anchor="middle" fill="#f6e1c6" font-family="system-ui, sans-serif" font-size="34" opacity="0.92">Community choir · Portland, Oregon</text>
+</svg>

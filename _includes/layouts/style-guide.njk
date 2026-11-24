@@ -14,17 +14,44 @@ section: style-guide
   <header class="sg-section">
     <h1>{{ title }}</h1>
     <p class="sg-section-lead">
-      Live tokens from <code>inline.css</code>. Switch light/dark above to preview how the palette lands on real site elements. Hex values update from computed styles.
+      Review surface for palette decisions. Live tokens from <code>inline.css</code>; hexes update from computed styles. Use Light/Dark above (or the footer toggle).
     </p>
   </header>
 
+  <section class="sg-section" aria-labelledby="sg-locked">
+    <h2 id="sg-locked">Locked core</h2>
+    <p class="sg-section-lead">Settled light-mode anchors — change these only on purpose.</p>
+    <ul class="sg-swatch-grid" data-sg-swatches>
+      {% set locked = [
+        ["background", "cream"],
+        ["primary", "darkened ocean (dark: #8eb0e8)"],
+        ["ocean", "ocean"],
+        ["primary-dark", "royal wash"],
+        ["violet", "violet"],
+        ["accent", "gold CTA"]
+      ] %}
+      {% for item in locked %}
+        <li class="sg-swatch" data-token="{{ item[0] }}">
+          <div class="sg-swatch-chip" style="background: var(--{{ item[0] }})"></div>
+          <div class="sg-swatch-meta">
+            <span class="sg-swatch-name">--{{ item[0] }}</span>
+            <span class="sg-swatch-hex" data-sg-hex>—</span>
+            <span class="sg-swatch-note">{{ item[1] }}</span>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
   <section class="sg-section" aria-labelledby="sg-palette">
-    <h2 id="sg-palette">Palette</h2>
-    <p class="sg-section-lead">Core CSS custom properties for the current theme.</p>
+    <h2 id="sg-palette">Applied tokens</h2>
+    <p class="sg-section-lead">Full set driving UI in the current theme.</p>
     <ul class="sg-swatch-grid" data-sg-swatches>
       {% set tokens = [
         "primary",
+        "primary-hover",
         "primary-dark",
+        "on-primary",
         "secondary",
         "background",
         "surface",
@@ -37,7 +64,14 @@ section: style-guide
         "border",
         "footer-bg",
         "footer-text",
-        "footer-text-muted"
+        "footer-text-muted",
+        "violet",
+        "ocean",
+        "gold",
+        "wash-lilac",
+        "wash-pink",
+        "wash-rose",
+        "mauve"
       ] %}
       {% for token in tokens %}
         <li class="sg-swatch" data-token="{{ token }}">

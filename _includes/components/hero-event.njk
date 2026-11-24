@@ -2,20 +2,30 @@
 <section class="hero hero-event">
   <p class="hero-eyebrow">Up next</p>
   {% if headingLevel == 2 %}
-    <h2 class="hero-title">{{ event.data.title }}</h2>
+    <h2 class="hero-title">
+      <a href="{{ event.url | url }}">{{ event.data.title }}</a>
+    </h2>
   {% else %}
-    <h1 class="hero-title">{{ event.data.title }}</h1>
+    <h1 class="hero-title">
+      <a href="{{ event.url | url }}">{{ event.data.title }}</a>
+    </h1>
   {% endif %}
-  <p class="hero-dates">{{ event.data.startDate | eventDateRange(event.data.endDate) }}</p>
+  {% if event.data.performances and event.data.performances.length %}
+    {% set performances = event.data.performances %}
+    {% include "components/performance-dates.njk" %}
+  {% else %}
+    <p class="hero-dates">{{ event.data.startDate | eventDateRange(event.data.endDate) }}</p>
+  {% endif %}
   {% if event.data.venue %}
     <p class="hero-venue">{{ event.data.venue }}{% if event.data.location %}, {{ event.data.location }}{% endif %}</p>
   {% endif %}
-  {% if event.data.ticketUrl %}
-    <p class="hero-cta">
-      <a class="button button-accent" href="{{ event.data.ticketUrl }}" rel="noopener noreferrer">
+  <p class="hero-cta">
+    <a class="hero-details-link" href="{{ event.url | url }}">Event details</a>
+    {% if event.data.ticketUrl %}
+      <a class="button button-accent" href="{{ event.data.ticketUrl }}" rel="noopener noreferrer" target="_blank">
         Tickets<span class="visually-hidden"> (opens in new tab)</span>
       </a>
-    </p>
-  {% endif %}
+    {% endif %}
+  </p>
 </section>
 {% endif %}

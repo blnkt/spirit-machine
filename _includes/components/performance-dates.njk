@@ -1,0 +1,10 @@
+{# Expects: performances (list), optional variant: "stacked" | "inline" #}
+{% if performances and performances.length %}
+  <ul class="event-performance-list{% if variant == 'inline' %} event-performance-list-inline{% endif %}">
+    {% for show in performances %}
+      <li>
+        <time datetime="{{ show.datetime | machineDate }}">{{ show.datetime | formatPerformanceDate }}</time>{% if show.label %} <span class="event-performance-label">{{ show.label }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

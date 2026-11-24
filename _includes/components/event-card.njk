@@ -1,6 +1,11 @@
 <article class="event-card{% if past %} event-card-past{% endif %}">
   <div class="event-card-date">
-    <time datetime="{{ item.data.startDate | machineDate }}">{{ item.data.startDate | eventDateRange(item.data.endDate) }}</time>
+    {% if item.data.performances and item.data.performances.length %}
+      {% set performances = item.data.performances %}
+      {% include "components/performance-dates.njk" %}
+    {% else %}
+      <time datetime="{{ item.data.startDate | machineDate }}">{{ item.data.startDate | eventDateRange(item.data.endDate) }}</time>
+    {% endif %}
   </div>
   <div class="event-card-body">
     <h2><a href="{{ item.url | url }}">{{ item.data.title }}</a></h2>

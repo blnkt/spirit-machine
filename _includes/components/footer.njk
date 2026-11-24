@@ -1,6 +1,12 @@
 <footer class="site-footer">
   <div class="site-footer-inner">
     {% include "components/social-links.njk" %}
-    <p class="footer-copy"><small>© {{ build.year }} {{ site.choirName or metadata.title }}</small></p>
+    <div class="footer-meta">
+      <p class="footer-copy"><small>© {{ build.year }} {{ site.choirName or metadata.title }}</small></p>
+      <div class="theme-toggle" role="group" aria-label="Color mode">
+        <button type="button" data-theme-set="light" aria-pressed="true">Light</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+      </div>
+    </div>
   </div>
 </footer>

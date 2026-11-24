@@ -52,8 +52,17 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Start date", name: "startDate", widget: "datetime" }
-      - { label: "End date", name: "endDate", widget: "datetime", required: false }
+      - { label: "Start date", name: "startDate", widget: "datetime", hint: "Earliest/primary date — used for calendar sorting" }
+      - { label: "End date", name: "endDate", widget: "datetime", required: false, hint: "Optional continuous range (e.g. retreat). Prefer Performances for separate shows." }
+      - label: "Performances"
+        name: "performances"
+        widget: "list"
+        required: false
+        summary: "{{fields.datetime}} {{fields.label}}"
+        hint: "Separate showings on different dates. When set, these are listed instead of the start/end range."
+        fields:
+          - { label: "Date & time", name: "datetime", widget: "datetime" }
+          - { label: "Label", name: "label", widget: "string", required: false, hint: "Optional, e.g. Matinee" }
       - { label: "Venue", name: "venue", widget: "string" }
       - { label: "Location", name: "location", widget: "string", required: false }
       - { label: "Ticket URL", name: "ticketUrl", widget: "string", required: false }

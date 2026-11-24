@@ -79,6 +79,11 @@ module.exports = function(eleventyConfig) {
     return `${start.toFormat("MMMM d")} – ${end.toFormat("MMMM d, yyyy")}`;
   });
 
+  eleventyConfig.addFilter("formatPerformanceDate", dateObj => {
+    if (!dateObj) return "";
+    return DateTime.fromJSDate(dateObj).toFormat("EEEE, MMMM d, yyyy · h:mm a");
+  });
+
   eleventyConfig.addFilter("isFuture", dateObj => {
     if (!dateObj) return false;
     return DateTime.fromJSDate(dateObj) > DateTime.now();

@@ -1,0 +1,174 @@
+---
+layout: layouts/base.njk
+section: style-guide
+---
+<div class="sg-toolbar" role="region" aria-label="Style guide theme">
+  <p class="sg-toolbar-label">Style guide</p>
+  <div class="theme-toggle sg-theme-toggle" role="group" aria-label="Color mode">
+    <button type="button" data-theme-set="light" aria-pressed="true">Light</button>
+    <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <header class="sg-section">
+    <h1>{{ title }}</h1>
+    <p class="sg-section-lead">
+      Live tokens from <code>inline.css</code>. Switch light/dark above to preview how the palette lands on real site elements. Hex values update from computed styles.
+    </p>
+  </header>
+
+  <section class="sg-section" aria-labelledby="sg-palette">
+    <h2 id="sg-palette">Palette</h2>
+    <p class="sg-section-lead">Core CSS custom properties for the current theme.</p>
+    <ul class="sg-swatch-grid" data-sg-swatches>
+      {% set tokens = [
+        "primary",
+        "primary-dark",
+        "secondary",
+        "background",
+        "surface",
+        "accent",
+        "accent-hover",
+        "accent-text",
+        "on-accent",
+        "text",
+        "text-muted",
+        "border",
+        "footer-bg",
+        "footer-text",
+        "footer-text-muted"
+      ] %}
+      {% for token in tokens %}
+        <li class="sg-swatch" data-token="{{ token }}">
+          <div class="sg-swatch-chip" style="background: var(--{{ token }})"></div>
+          <div class="sg-swatch-meta">
+            <span class="sg-swatch-name">--{{ token }}</span>
+            <span class="sg-swatch-hex" data-sg-hex>—</span>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-type">
+    <h2 id="sg-type">Typography</h2>
+    <p class="sg-section-lead">Display (Fraunces) and body (Nunito Sans) as used on the site.</p>
+    <div class="sg-type-stack prose">
+      <h1>Heading one</h1>
+      <h2>Heading two</h2>
+      <h3>Heading three</h3>
+      <p>Body copy for Spirit Machine — a community choir in Portland. This paragraph uses the main text color on the page background.</p>
+      <p class="sg-muted">Muted supporting text for venues, captions, and secondary notes.</p>
+      <p><a href="#sg-type">Inline text link</a> with visited/unvisited styles from <code>--primary</code>.</p>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-buttons">
+    <h2 id="sg-buttons">Buttons</h2>
+    <p class="sg-section-lead">Primary and accent CTAs.</p>
+    <div class="sg-row">
+      <a class="button" href="#sg-buttons">Primary button</a>
+      <a class="button button-accent" href="#sg-buttons">Accent button</a>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-nav">
+    <h2 id="sg-nav">Navigation</h2>
+    <p class="sg-section-lead">Default, hover, and current-page states.</p>
+    <div class="sg-nav-demo">
+      <ul class="nav-list">
+        <li><a href="#sg-nav">Home</a></li>
+        <li><a href="#sg-nav" aria-current="page">Calendar</a></li>
+        <li><a href="#sg-nav">Videos</a></li>
+        <li><a href="#sg-nav">About</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-card">
+    <h2 id="sg-card">Event card</h2>
+    <p class="sg-section-lead">Calendar listing surface.</p>
+    <article class="event-card">
+      <div class="event-card-date">Saturday, May 16, 2026</div>
+      <div class="event-card-body">
+        <h2><a href="#sg-card">Spring Concert</a></h2>
+        <p class="event-venue">Oberlin Park, Portland</p>
+        <p>Sample card body using surface, border, and muted venue text.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-hero">
+    <h2 id="sg-hero">Hero</h2>
+    <p class="sg-section-lead">Full-bleed featured event band.</p>
+  </section>
+</div>
+
+<div class="hero-bleed">
+  <div class="hero">
+    <p class="hero-eyebrow">Featured event</p>
+    <h2 class="hero-title">Spring Concert</h2>
+    <p class="hero-dates">May 16–17, 2026</p>
+    <p class="hero-venue">Oberlin Park · Portland, OR</p>
+    <p class="hero-cta"><a class="button button-accent" href="#sg-hero">Get tickets</a></p>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <section class="sg-section" aria-labelledby="sg-footer">
+    <h2 id="sg-footer">Footer</h2>
+    <p class="sg-section-lead">Dark band colors used site-wide in the footer.</p>
+    <div class="sg-footer-demo">
+      <nav class="social-links" aria-label="Style guide footer sample">
+        <ul>
+          <li><a href="#sg-footer"><span class="social-icon social-icon-youtube" aria-hidden="true"></span> YouTube</a></li>
+          <li><a href="#sg-footer"><span class="social-icon social-icon-instagram" aria-hidden="true"></span> Instagram</a></li>
+          <li><a href="#sg-footer"><span class="social-icon social-icon-email" aria-hidden="true"></span> Email</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">© Spirit Machine</p>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-focus">
+    <h2 id="sg-focus">Focus</h2>
+    <p class="sg-section-lead">Keyboard focus uses the accent outline. Tab into these controls to check contrast.</p>
+    <div class="sg-focus-demo">
+      <a class="button" href="#sg-focus">Focus me</a>
+      <a href="#sg-focus">Text link focus</a>
+      <button type="button" class="button button-accent">Button focus</button>
+    </div>
+    <p class="sg-note">Theme preference is stored in <code>localStorage</code> as <code>sm-theme</code> for this browser only.</p>
+  </section>
+</div>
+
+<script>
+(function () {
+  function rgbToHex(value) {
+    var match = String(value).match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+    if (!match) return value;
+    return (
+      "#" +
+      [match[1], match[2], match[3]]
+        .map(function (part) {
+          return Number(part).toString(16).padStart(2, "0");
+        })
+        .join("")
+    );
+  }
+
+  function refreshSwatches() {
+    var styles = getComputedStyle(document.documentElement);
+    document.querySelectorAll("[data-token]").forEach(function (item) {
+      var token = item.getAttribute("data-token");
+      var hex = item.querySelector("[data-sg-hex]");
+      if (!token || !hex) return;
+      hex.textContent = rgbToHex(styles.getPropertyValue("--" + token).trim());
+    });
+  }
+
+  document.addEventListener("sm-themechange", refreshSwatches);
+  refreshSwatches();
+})();
+</script>

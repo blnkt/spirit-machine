@@ -1,11 +1,15 @@
 ---
-title: Spring 2026 Performance
-permalink: /events/spring-concert-2026/index.html
-startDate: 2026-05-22T19:00:00.000Z
-venue: Rose City Park Presbyterian
+title: Winter 2026 Performance
+permalink: /events/winter-concert-2026/index.html
+startDate: 2026-12-18T19:30:00.000-08:00
+performances:
+  - datetime: 2026-12-18T19:30:00.000-08:00
+  - datetime: 2026-12-19T19:30:00.000-08:00
+ticketUrl: http://www.ticketmaster.com
+venue: First Congregational UCC
 location: Portland, OR
 featured: true
-summary: Our Spring 2026 concert—Friday evening in Portland.
+summary: Our Winter 2026 concert—Friday and Saturday evening in Portland.
 ---
 
-Join Spirit Machine for our Spring 2026 performance after a full season of Thursday rehearsals at Taborspace. It is going to be exquisite.
+Spirit Machine with Lily Breshears at First Congregational UCC, SW Park & Madison @ 7:30pm December 18th & 19th. $15-$25
